@@ -1,0 +1,95 @@
+<template>
+	<div class="box">
+		<!-- <div style="height: 100px; background-color: #004aff; width: 375px;border-width:1px;
+			border-style:solid;border-color:red;
+			padding: 45px;margin-left: 100px;margin-right: 100px;margin-top: 0px;margin-bottom: 0px;">111</div>
+		<div .box-div>111</div>
+		<div .box-div>
+			<text class="main-text-color">333</text>
+		</div>
+		<div style="height: 100px; background-color: #08bbad; width: 375px;">222</div>
+		<div style="height: 100px; background-color: #004aff; width: 375px;">111</div>
+		<div style="height: 100px; background-color: #08bbad; width: 375px;">222</div>
+		 -->
+		
+		<list>
+			<refresh style="height: 80px;" @refresh="refresh()" @pullingdown="pullingdown" :display="show">
+				<text>{{refreshtext}}</text>
+			</refresh>
+			<cell>
+				<div style="height: 300px;border-width: 2px;border-style: solid; border-color: #007AFF;
+					background: #4cd964; margin: 50px;"><text>255</text></div>
+			</cell>
+			<header>
+				<div style="height: 155px; background-color:#FF3333 ;"></div>
+			</header>
+			<cell v-for="(num, index) in lists" :key="index">
+				<div style="height: 300px;border-width: 2px;border-style: solid; border-color: #007AFF; 
+					background: #4cd964; margin: 50px;"><text>{{num}}</text></div>
+			</cell>
+			
+			<loading @loading="onLoading" :display="loadingShow">
+				<text style="display: flex; justify-content: center; width: 720px;">
+					loading
+				</text>
+			</loading>
+		</list>
+	</div>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				loadingShow: 'hide',
+				show: 'hide',
+				refreshtext: "",
+				lists: ['A', 'B', 'C', 'D', 'E']
+			}
+		},
+		methods:{
+			// 上拉加载事件
+			onLoading() {
+				this.loadingShow = 'show'
+				setTimeout(() => {
+					this.lists = [...this.lists, ...["我", "爱", "你"]]
+					this.loadingShow = 'hide'
+				}, 1200)
+			},
+			
+			// 执行刷新
+			refresh(e) {
+				this.show = 'show'
+				this.refreshtext = '正在刷新啦' 
+				setTimeout(()=> {
+					this.show = 'hide'
+					this.refreshtext = '明白了'
+				}, 1200);
+			},
+			// 判断下拉刷新状态
+			pullingdown(e) {
+				if(e.pullingDistance > e.viewHeight) {
+					this.refreshtext = '释放可以刷新了'
+					console.log(e.pullingDistance)
+					console.log("222")
+					console.log(e.viewHeight)
+				}else{
+					this.refreshtext = '下拉可以刷新'
+				}
+			}
+		}
+	}
+</script>
+
+<!-- <style src="@/common/common.css"></style> -->
+<style>
+	/* @import "/common/zcm-main.css"; */
+	.box {
+		flex-direction: row; flex-wrap: wrap;
+	}
+	.box-div{
+		height: 100px; background-color: #004aff; width: 375px;border-width:1px;
+			border-style:solid;border-color:red;
+			padding: 45px;margin-left: 100px;margin-right: 100px;margin-top: 0px;margin-bottom: 0px;
+	}
+</style>
