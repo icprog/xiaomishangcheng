@@ -13,7 +13,7 @@
 </script>
 
 <style>
-	/*每个页面公共css 345*/
+	/*每个页面公共css */
 	/*官方UI库 */
 	@import "/common/uni.css";
 	/*第三方动画库 */
