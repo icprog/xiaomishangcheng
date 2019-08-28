@@ -1,0 +1,1 @@
+<view class="content"><block wx:if="{{show}}"><image class="logo animated flip fast" src="/static/logo.png"></image></block><view class="text-area"><text data-event-opts="{{[['tap',[['e0',['$event']]]]]}}" class="title" bindtap="__e">{{title}}</text></view><view class="iconfont icon-xiaoxi" style="font-size:50rpx;"></view></view>
