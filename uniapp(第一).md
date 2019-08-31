@@ -40,3 +40,16 @@
 			5. 背景颜色只能用background-color
 			6. 选择器只支持单类
 			7. 引入要用<style src="@/common/nvue-common.css"></style>
+	.(三) nvue和vue之间的通讯
+			1. --在nvue中使用 uni.postMessage(data) 发送数据通讯，data为JSON格式（键值对的值仅支持string);
+			   --在App.vue里使用 onUniNViewMessage 进行监听
+				 
+			2. --在vue中使用 plus.webview.postMessageToUniNView(data, nvueId) 发送消息， data为JSON 格式（键值对的值仅支持string），
+					   nvueId为nvue所在webview的id，webview的id获取方式参考：$getAppWebview()
+				 --在nvue里引用globalEvent 模块监听 plusMessage 事件	
+			3. vue和nvue共享的变量和数据
+				 --nvue不支持vuex
+				 --方式一：uni.storage vue和nvue页面可以使用相同的uni.storage存储（这个存储是持久化的，比如登录状态可以保存在这里）
+				 --方式二：globalData 小程序有globalData机制，这套机制在uni-app里也可以使用，全端通用。在App.vue文件里定义globalData，
+									通过getApp().globalData获取数据
+				 

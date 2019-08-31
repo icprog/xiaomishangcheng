@@ -9,4 +9,5 @@
 ## // custom kʌstəm . 习惯 风俗 做的 // category kætəɡɔri n. 种类，分类 //cart kɑrt 购物车
 ## // remote rɪ'mot n. 远程 // destination dɛstɪ'neʃən n. 目的地，终点 // refresh ri'frɛʃ vt. 更新
 ## // invoke ɪn'vok vt. 调用 // column kɑləm n. 纵队，列 // row ro n.行
-## // wrap ræp vi. (包起来；缠绕)换行 // 
+## // wrap ræp vi. (包起来；缠绕)换行 // indicator ɪndɪketɚ n. 指标，标志 // origin ɔrɪdʒɪn n. 起源；原点；出身；开端
+## // remote rɪ'mot n. 远程 // master mæstɚ n. 主人v. 精通；控制 // 

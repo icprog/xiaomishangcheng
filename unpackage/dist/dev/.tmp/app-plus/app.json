@@ -2,7 +2,8 @@
   "pages": [
     "pages/class/class",
     "pages/cart/cart",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/ceshi/ceshi"
   ],
   "window": {
     "navigationBarTextStyle": "black",
