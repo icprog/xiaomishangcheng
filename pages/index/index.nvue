@@ -1,13 +1,38 @@
 <template>
 	<div>
-		<!-- 轮播图组件 -->
-		<sum-slider :swipers="swipers"></sum-slider>
+		<list :show-scrollbar="true">
+			<cell>
+				<!-- 轮播图组件 -->
+				<sum-slider :swipers="swipers"></sum-slider>
+				
+				<!-- 图标分类组件 -->
+				<sum-index-nav :resdata="indexNavs"/>
+				<!-- 封装全局分割线组件 -->
+				<divider />
+				
+				<!-- 三图广告组件 -->
+				<sum-three-adv :item="threeAdv"/>
+				<divider />
+				
+				<!-- 大图广告组件 -->
+				<sum-one-adv :item="oneAdv"/>
+				
+				<!-- 公共列表组件
+				间隙：5px
+				每列占：375px
+				-->
+				<div class="row w-100">
+					<block v-for="(item, index) in list" :key="index">
+						<common-list :item="item" :index="index"></common-list>
+					</block>
+				</div>
+				
+				
+				
+			</cell>
+		</list>
 		
-		<!-- 图标分类组件 -->
-		<sum-index-nav :resdata="indexNavs"/>
 		
-		<!-- 封装全局分割线组件 -->
-		<divider />
 	</div>
 </template>
 
@@ -15,6 +40,9 @@
 	import sumSlider from "@/components/index/nvue/sum-slider.nvue"
 	import sumIndexNav from "@/components/index/nvue/sum-index-navs.nvue"
 	import divider from "@/components/common/divider.nvue"
+	import sumThreeAdv from "@/components/index/nvue/sum-three-adv.nvue"
+	import sumOneAdv from "@/components/index/nvue/sum-one-adv.nvue"
+	import commonList from "@/components/common/common-list.nvue"
 	
 	//获取当前窗口对象
 	const currentWebview = plus.webview.currentWebview()
@@ -22,7 +50,10 @@
 		components:{
 			sumSlider,
 			sumIndexNav,
-			divider
+			divider,
+			sumThreeAdv,
+			sumOneAdv,
+			commonList
 		},
 		data () {
 		  return {
@@ -43,6 +74,59 @@
 					{ src:"/static/images/indexnav/9.gif", name:"家电热卖" },
 					{ src:"/static/images/indexnav/10.gif", name:"米粉卡" },
 				],
+				threeAdv: [
+					{ src:"/static/images/demo/demo1.jpg" },
+					{ src:"/static/images/demo/demo2.jpg" },
+					{ src:"/static/images/demo/demo3.jpg" },
+				],
+				oneAdv: {
+					cover:"/static/images/demo/demo4.jpg",
+					title:"每日精选"
+				},
+				list: [
+					{
+						cover:"/static/images/demo/list/1.jpg",
+						title:"米家空调",
+						desc:"1.5匹变频",
+						oprice:2699,
+						pprice:1399
+					},
+					{
+						cover:"/static/images/demo/list/1.jpg",
+						title:"米家空调",
+						desc:"1.5匹变频",
+						oprice:2699,
+						pprice:1399
+					},
+					{
+						cover:"/static/images/demo/list/1.jpg",
+						title:"米家空调",
+						desc:"1.5匹变频",
+						oprice:2699,
+						pprice:1399
+					},
+					{
+						cover:"/static/images/demo/list/1.jpg",
+						title:"米家空调",
+						desc:"1.5匹变频",
+						oprice:2699,
+						pprice:1399
+					},
+					{
+						cover:"/static/images/demo/list/1.jpg",
+						title:"米家空调",
+						desc:"1.5匹变频",
+						oprice:2699,
+						pprice:1399
+					},
+					{
+						cover:"/static/images/demo/list/1.jpg",
+						title:"米家空调",
+						desc:"1.5匹变频",
+						oprice:2699,
+						pprice:1399
+					}
+				]
 			}	
 		},
 		

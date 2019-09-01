@@ -26,8 +26,7 @@
 
 
 /*  -- 栅格布局 -- */
-.row { box-sizing: border-box; flex-direction: row; flex-wrap: wrap;}
-/* [class*='col-'] { min-height: 1px; width: 62.5px; padding:5px; } */
+.row { flex-direction: row; flex-wrap: wrap;}
 .col-1{ width: 62.5px; } 
 .col-2{ width: 125px; } 
 .col-3{ width: 187.5px; } 
@@ -42,7 +41,6 @@
 .col-12{ width: 750px; }
 
 /* flex布局 */
-.d-flex{ display: flex; }
 .flex-1{ flex: 1; }
 .flex-column{ flex-direction: column; }
 .flex-row{ flex-direction: row; }
